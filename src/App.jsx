@@ -7,7 +7,13 @@ import { routeTree } from "./routeTree.gen";
 const router = createRouter({
   routeTree,
 });
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      experimental_prefetchInRender: true,
+    },
+  },
+});
 
 const App = () => {
   return (
